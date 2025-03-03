@@ -17,6 +17,19 @@ if ! command -v atlas &> /dev/null; then
   exit 1
 fi
 
+# Run the command and capture the previous setup attempts
+json_output=$(atlas config describe default)
+
+# Extract the project_id using awk
+project_id=$(echo "$json_output" | awk -F'"' '/"project_id":/ {print $4}')
+
+# Check if project_id is not empty
+if [[ -z "$project_id" ]]; then
+  echo "The MongoDB  ProjectID is not setup correctly"
+  echo "Please re-run atlas config init"
+  exit 1
+fi
+
 # List all Atlas clusters and parse their names
 clusterNames=$(atlas clusters list -o text | awk 'NR > 1 {print $2}')
 echo "User: [$(atlas whoami)]"
