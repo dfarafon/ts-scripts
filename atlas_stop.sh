@@ -25,7 +25,7 @@ project_id=$(echo "$json_output" | awk -F'"' '/"project_id":/ {print $4}')
 
 # Check if project_id is not empty
 if [[ -z "$project_id" ]]; then
-  echo "The MongoDB  ProjectID is not setup correctly"
+  echo "The MongoDB ProjectID is not setup correctly"
   echo "Please re-run atlas config init"
   exit 1
 fi
