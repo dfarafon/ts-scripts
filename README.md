@@ -12,8 +12,8 @@ How to Use the Script
 - Ensure Atlas CLI is Configured: Make sure you have configured the MongoDB Atlas CLI using atlas config init. This step will ensure your API key and project details are stored.
 
 Run the Script: Execute the script using the terminal. Make sure you have execute permissions:
-chmod +x stop_atlas_clusters.sh
-./stop_atlas_clusters.sh
+- chmod +x stop_atlas_clusters.sh
+- ./stop_atlas_clusters.sh
 
 Important Notes
 - Ensure you have appropriate permissions to pause clusters in the target MongoDB Atlas project.
